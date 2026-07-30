@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL-M: Chronos Mars Spaceport Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Real Blazing Rocket Liftoff Screen (Aag ki lapate) -->
+    <div id="spacePortPreloader">
+        <div class="launch-pad">
+            <div class="heavy-rocket">
+                <div class="rocket-tip"></div>
+                <div class="rocket-flame-blast"></div>
+            </div>
+            <div class="ground-fire-ball"></div>
+        </div>
+        <h2 class="loading-text">IGNITION... EXECUTING MARS LIFTOFF</h2>
+    </div>
+
+    <!-- 2. Celestial Background Overlays -->
+    <div class="space-overlay"></div>
+    <div class="stars"></div>
+
+    <!-- 3. All 8 Planets Orbits -->
+    <div class="orbit path-1"><div class="planet mercury"></div></div>
+    <div class="orbit path-2"><div class="planet venus"></div></div>
+    <div class="orbit path-3"><div class="planet earth"></div></div>
+    <div class="orbit path-4"><div class="planet mars-main"></div></div>
+    <div class="orbit path-5"><div class="planet jupiter"></div></div>
+    <div class="orbit path-6"><div class="planet saturn"><div class="rings"></div></div></div>
+    <div class="orbit path-7"><div class="planet uranus"></div></div>
+    <div class="orbit path-8"><div class="planet neptune"></div></div>
+
+    <div class="container">
+        <header>
+            <div class="security-badge">🔒 SECURE QUANTUM LINK ACTIVE</div>
+            <h1>MARS PORTAL: CONSTELLATION TERMINAL</h1>
+            <p>Unified Commercial Interplanetary Manifesting System</p>
+        </header>
+
+        <div class="main-grid">
+            <!-- Left Side: Registration Form -->
+            <main class="form-container">
+                <form id="marsManifestForm">
+                    <div class="form-section">
+                        <h2>01. Synodic Launch Window Selection</h2>
+                        <div class="input-group">
+                            <label>Select Target Transit Matrix:</label>
+                            <select id="launchWindow" onchange="updateSystemMetrics()">
+                                <option value="homan" data-base="320000">Hohmann Transfer Trajectory - Q3 2026 ($320,000)</option>
+                                <option value="fast" data-base="640000">High-Thrust Ion Propulsion Express ($640,000)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>02. Astronaut Biometric Verification</h2>
+                        <div class="upload-zone" id="avatarBox">
+                            <div class="upload-content" id="avatarPrompt">
+                                <span class="icon">📷</span>
+                                <p>Click to Upload Facial Biometric Matrix (Aapki Photo)</p>
+                            </div>
+                            <input type="file" id="bioPhoto" accept="image/*" style="display:none">
+                            <img id="bioPreview" class="avatar-preview" alt="Biometric Face Data">
+                        </div>
+
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label>Legal Surname:</label>
+                                <input type="text" id="lastName" required placeholder="e.g. Devyanshi Sharma">
+                            </div>
+                            <div class="input-group">
+                                <label>Passport/Agency ID:</label>
+                                <input type="text" id="agencyId" required placeholder="e.g. AX-9082-MARS">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h2>03. Micro-Gravity Infrastructure</h2>
+                        <div class="input-group">
+                            <label>Deep-Space Transit Habitation Module:</label>
+                            <select id="habModule" onchange="updateSystemMetrics()">
+                                <option value="ste" data-add="0">Standard Quarters (+$0)</option>
+                                <option value="rot" data-add="85000">Artificial Gravity Ring (+$85,000)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-launch">Confirm & Queue For Flight Manifest</button>
+                </form>
+            </main>
+
+            <!-- Right Side: Sidebar Widgets -->
+            <aside class="sidebar">
+                <div class="widget">
+                    <h3>Manifest Cost Structure</h3>
+                    <div class="price-display" id="fareDisplay">$320,000</div>
+                    <p class="crypto-equivalent" id="tokenDisplay">≈ 3.36 BTC</p>
+                </div>
+
+                <div class="widget">
+                    <h3>Next Mars Alignment Engine</h3>
+                    <div class="timer">180d : 12h : 44m</div>
+                    <span class="pulse-dot"></span> <small>Telemetry Relay Sync - Active</small>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Success Modal Popup -->
+    <div class="overlay" id="manifestOverlay">
+        <div class="modal">
+            <div class="success-icon">🛰️</div>
+            <h2>Interplanetary Flight Manifest Compiled</h2>
+            <div class="modal-body" id="manifestSummary"></div>
+            <button class="btn-close" onclick="purgeManifest()">Acknowledge & Reset Terminal</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+      </html>
+      
